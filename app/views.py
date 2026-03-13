@@ -19,7 +19,8 @@ def home(request):
                 "city": weather["name"],
                 "temperature": weather["main"]["temp"],
                 "humidity": weather["main"]["humidity"],
-                "description": weather["weather"][0]["description"]
+                "description": weather["weather"][0]["description"],
+                "icon": weather["weather"][0]["icon"]
             }
         else:
             error = "City not found. Please enter a valid city."

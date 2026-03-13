@@ -4,13 +4,15 @@
 <title>Weather App</title>
 </head>
 
-<body>
+<body style="text-align:center; font-family:Arial; background-color:#f2f2f2;">
+
+<div style="background:white; padding:20px; width:300px; margin:auto; margin-top:80px; border-radius:10px; box-shadow:0px 0px 10px #ccc;">
 
 <h1>Weather App</h1>
 
 <form method="POST">
     {% csrf_token %}
-    <input type="text" name="city" placeholder="Enter City">
+    <input type="text" name="city" placeholder="Enter City" required>
     <button type="submit">Search</button>
 </form>
 
@@ -21,11 +23,16 @@
 {% if data %}
 
 <h2>{{ data.city }}</h2>
-<p>Temperature: {{ data.temperature }} °C</p>
-<p>Humidity: {{ data.humidity }} %</p>
-<p>Description: {{ data.description }}</p>
+
+<img src="https://openweathermap.org/img/wn/{{ data.icon }}@2x.png">
+
+<p><b>Temperature:</b> {{ data.temperature }} °C</p>
+<p><b>Humidity:</b> {{ data.humidity }} %</p>
+<p><b>Description:</b> {{ data.description }}</p>
 
 {% endif %}
+
+</div>
 
 </body>
 </html>
